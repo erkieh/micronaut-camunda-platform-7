@@ -15,7 +15,7 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.webapp;
 
-import org.camunda.bpm.tasklist.impl.web.TasklistApplication;
+import org.operaton.bpm.tasklist.impl.web.TasklistApplication;
 import org.glassfish.jersey.server.ResourceConfig;
 
 /***

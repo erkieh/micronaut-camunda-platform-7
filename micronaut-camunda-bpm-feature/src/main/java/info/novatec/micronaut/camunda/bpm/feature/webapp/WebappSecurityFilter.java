@@ -15,17 +15,17 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.webapp;
 
-import org.camunda.bpm.webapp.impl.security.filter.SecurityFilter;
+import org.operaton.bpm.webapp.impl.security.filter.SecurityFilter;
 
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
 
 /**
  * This filter extends the Camunda SecurityFilter to manually set the correct context path.
  *
  * @author Martin Sawilla
  */
-// Implementation based on Spring Boot Starter: https://github.com/camunda/camunda-bpm-platform/blob/a7df9b45d95ec17da9befd3f7e0888b7801038c8/spring-boot-starter/starter-webapp-core/src/main/java/org/camunda/bpm/spring/boot/starter/webapp/filter/ResourceLoadingSecurityFilter.java
+// Implementation based on Spring Boot Starter: https://github.com/camunda/camunda-bpm-platform/blob/a7df9b45d95ec17da9befd3f7e0888b7801038c8/spring-boot-starter/starter-webapp-core/src/main/java/org/operaton/bpm/spring/boot/starter/webapp/filter/ResourceLoadingSecurityFilter.java
 public class WebappSecurityFilter extends SecurityFilter {
 
     protected void loadFilterRules(FilterConfig filterConfig, String applicationPath) throws ServletException {

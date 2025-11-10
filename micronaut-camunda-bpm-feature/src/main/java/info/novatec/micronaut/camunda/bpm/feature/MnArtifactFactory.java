@@ -18,8 +18,8 @@ package info.novatec.micronaut.camunda.bpm.feature;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.exceptions.NoSuchBeanException;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ArtifactFactory;
-import org.camunda.bpm.engine.impl.DefaultArtifactFactory;
+import org.operaton.bpm.engine.ArtifactFactory;
+import org.operaton.bpm.engine.impl.DefaultArtifactFactory;
 
 /**
  * Micronaut specific implementation of {@link ArtifactFactory} to resolve classes from the {@link ApplicationContext}.

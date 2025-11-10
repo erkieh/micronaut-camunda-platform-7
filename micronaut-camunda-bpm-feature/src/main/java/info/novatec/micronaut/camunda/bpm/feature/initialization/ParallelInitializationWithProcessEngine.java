@@ -16,7 +16,7 @@
 
 package info.novatec.micronaut.camunda.bpm.feature.initialization;
 
-import org.camunda.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.ProcessEngine;
 
 /**
  * @author Tobias Schäfer

@@ -18,7 +18,7 @@ package info.novatec.micronaut.camunda.bpm.example.onboarding;
 import io.micronaut.runtime.event.annotation.EventListener;
 import jakarta.inject.Singleton;
 import io.micronaut.discovery.event.ServiceReadyEvent;
-import org.camunda.bpm.engine.RuntimeService;
+import org.operaton.bpm.engine.RuntimeService;
 
 @Singleton
 public class OnboardingProcessInstanceCreator {

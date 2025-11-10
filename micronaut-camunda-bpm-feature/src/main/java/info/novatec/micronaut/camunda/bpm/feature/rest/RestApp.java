@@ -15,9 +15,9 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.rest;
 
-import org.camunda.bpm.engine.rest.exception.ExceptionHandler;
-import org.camunda.bpm.engine.rest.exception.RestExceptionHandler;
-import org.camunda.bpm.engine.rest.impl.CamundaRestResources;
+import org.operaton.bpm.engine.rest.exception.ExceptionHandler;
+import org.operaton.bpm.engine.rest.exception.RestExceptionHandler;
+import org.operaton.bpm.engine.rest.impl.OperatonRestResources;
 import org.glassfish.jersey.server.ResourceConfig;
 
 /**
@@ -31,8 +31,8 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class RestApp extends ResourceConfig {
     public RestApp() {
         // Register Camunda Rest Resources
-        registerClasses(CamundaRestResources.getResourceClasses());
-        registerClasses(CamundaRestResources.getConfigurationClasses());
+        registerClasses(OperatonRestResources.getResourceClasses());
+        registerClasses(OperatonRestResources.getConfigurationClasses());
 
         // If you want to configure the serialization of date fields you have to use:
         // register(JacksonConfigurator.class);

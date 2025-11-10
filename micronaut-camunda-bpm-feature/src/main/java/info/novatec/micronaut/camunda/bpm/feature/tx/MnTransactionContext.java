@@ -19,21 +19,21 @@ import io.micronaut.core.annotation.NonNull;
 import io.micronaut.transaction.SynchronousTransactionManager;
 import io.micronaut.transaction.TransactionStatus;
 import io.micronaut.transaction.support.TransactionSynchronization;
-import org.camunda.bpm.engine.impl.cfg.TransactionContext;
-import org.camunda.bpm.engine.impl.cfg.TransactionListener;
-import org.camunda.bpm.engine.impl.cfg.TransactionState;
-import org.camunda.bpm.engine.impl.interceptor.CommandContext;
+import org.operaton.bpm.engine.impl.cfg.TransactionContext;
+import org.operaton.bpm.engine.impl.cfg.TransactionListener;
+import org.operaton.bpm.engine.impl.cfg.TransactionState;
+import org.operaton.bpm.engine.impl.interceptor.CommandContext;
 
 import java.sql.Connection;
 
-import static org.camunda.bpm.engine.impl.cfg.TransactionState.*;
+import static org.operaton.bpm.engine.impl.cfg.TransactionState.*;
 
 /**
  * Micronaut specific implementation of {@link TransactionContext}
  *
  * @author Tobias Schäfer
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/camunda/bpm/engine/spring/SpringTransactionContext.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/operaton/bpm/engine/spring/SpringTransactionContext.java
 public class MnTransactionContext implements TransactionContext {
 
     protected final SynchronousTransactionManager<Connection> transactionManager;

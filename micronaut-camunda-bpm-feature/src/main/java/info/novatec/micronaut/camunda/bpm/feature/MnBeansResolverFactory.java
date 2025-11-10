@@ -23,9 +23,9 @@ import io.micronaut.core.naming.NameResolver;
 import io.micronaut.inject.BeanDefinition;
 import io.micronaut.inject.qualifiers.Qualifiers;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.delegate.VariableScope;
-import org.camunda.bpm.engine.impl.scripting.engine.Resolver;
-import org.camunda.bpm.engine.impl.scripting.engine.ResolverFactory;
+import org.operaton.bpm.engine.delegate.VariableScope;
+import org.operaton.bpm.engine.impl.scripting.engine.Resolver;
+import org.operaton.bpm.engine.impl.scripting.engine.ResolverFactory;
 
 import java.util.Optional;
 import java.util.Set;
@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
  * @author Titus Meyer
  * @see info.novatec.micronaut.camunda.bpm.feature.MnProcessEngineConfiguration#initScripting()
  */
-// Implementation based on: https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/camunda/bpm/engine/spring/SpringBeansResolverFactory.java
+// Implementation based on: https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/operaton/bpm/engine/spring/SpringBeansResolverFactory.java
 @Singleton
 public class MnBeansResolverFactory implements ResolverFactory, Resolver {
 

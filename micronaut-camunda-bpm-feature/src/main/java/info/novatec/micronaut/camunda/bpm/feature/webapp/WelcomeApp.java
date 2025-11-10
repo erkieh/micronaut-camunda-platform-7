@@ -15,7 +15,7 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.webapp;
 
-import org.camunda.bpm.welcome.impl.web.WelcomeApplication;
+import org.operaton.bpm.welcome.impl.web.WelcomeApplication;
 import org.glassfish.jersey.server.ResourceConfig;
 
 /***

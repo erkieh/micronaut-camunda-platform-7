@@ -20,7 +20,7 @@ import info.novatec.micronaut.camunda.bpm.feature.eventing.ExecutionEvent;
 import info.novatec.micronaut.camunda.bpm.feature.eventing.TaskEvent;
 import io.micronaut.runtime.event.annotation.EventListener;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.impl.history.event.HistoryEvent;
+import org.operaton.bpm.engine.impl.history.event.HistoryEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -20,24 +20,24 @@ import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.transaction.SynchronousTransactionManager;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.AuthorizationService;
-import org.camunda.bpm.engine.IdentityService;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.authorization.Resource;
-import org.camunda.bpm.engine.authorization.Resources;
-import org.camunda.bpm.engine.identity.Group;
-import org.camunda.bpm.engine.identity.User;
-import org.camunda.bpm.engine.impl.persistence.entity.AuthorizationEntity;
+import org.operaton.bpm.engine.AuthorizationService;
+import org.operaton.bpm.engine.IdentityService;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.authorization.Resource;
+import org.operaton.bpm.engine.authorization.Resources;
+import org.operaton.bpm.engine.identity.Group;
+import org.operaton.bpm.engine.identity.User;
+import org.operaton.bpm.engine.impl.persistence.entity.AuthorizationEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 
-import static org.camunda.bpm.engine.authorization.Authorization.ANY;
-import static org.camunda.bpm.engine.authorization.Authorization.AUTH_TYPE_GRANT;
-import static org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN;
-import static org.camunda.bpm.engine.authorization.Groups.GROUP_TYPE_SYSTEM;
-import static org.camunda.bpm.engine.authorization.Permissions.ALL;
+import static org.operaton.bpm.engine.authorization.Authorization.ANY;
+import static org.operaton.bpm.engine.authorization.Authorization.AUTH_TYPE_GRANT;
+import static org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN;
+import static org.operaton.bpm.engine.authorization.Groups.GROUP_TYPE_SYSTEM;
+import static org.operaton.bpm.engine.authorization.Permissions.ALL;
 
 /**
  * Bean creating Camunda Admin User, Group and Authorizations if {@code camunda.admin-user.id} Property is present.
@@ -45,7 +45,7 @@ import static org.camunda.bpm.engine.authorization.Permissions.ALL;
  * @author Titus Meyer
  * @author Tobias Schäfer
  */
-// Implementation based on: https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/configuration/impl/custom/CreateAdminUserConfiguration.java
+// Implementation based on: https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/configuration/impl/custom/CreateAdminUserConfiguration.java
 @Singleton
 @Requires(property = "camunda.admin-user.id")
 public class AdminUserCreator implements ParallelInitializationWithProcessEngine {
@@ -74,7 +74,7 @@ public class AdminUserCreator implements ParallelInitializationWithProcessEngine
 
                     createAdminGroupAuthorizations(authorizationService);
 
-                    identityService.createMembership(adminUser.getId(), CAMUNDA_ADMIN);
+                    identityService.createMembership(adminUser.getId(), OPERATON_ADMIN);
 
                     log.info("Created initial Admin User: {}", adminUser.getId());
                 }
@@ -88,7 +88,7 @@ public class AdminUserCreator implements ParallelInitializationWithProcessEngine
     }
 
     protected boolean adminGroupAlreadyExists(IdentityService identityService) {
-        return identityService.createGroupQuery().groupId(CAMUNDA_ADMIN).count() > 0;
+        return identityService.createGroupQuery().groupId(OPERATON_ADMIN).count() > 0;
     }
 
     protected void createUser(IdentityService identityService) {
@@ -102,7 +102,7 @@ public class AdminUserCreator implements ParallelInitializationWithProcessEngine
     }
 
     protected void createAdminGroup(IdentityService identityService) {
-        Group camundaAdminGroup = identityService.newGroup(CAMUNDA_ADMIN);
+        Group camundaAdminGroup = identityService.newGroup(OPERATON_ADMIN);
         camundaAdminGroup.setName("Camunda Administrators");
         camundaAdminGroup.setType(GROUP_TYPE_SYSTEM);
         identityService.saveGroup(camundaAdminGroup);
@@ -110,9 +110,9 @@ public class AdminUserCreator implements ParallelInitializationWithProcessEngine
 
     protected void createAdminGroupAuthorizations(AuthorizationService authorizationService) {
         for (Resource resource : Resources.values()) {
-            if (authorizationService.createAuthorizationQuery().groupIdIn(CAMUNDA_ADMIN).resourceType(resource).resourceId(ANY).count() == 0) {
+            if (authorizationService.createAuthorizationQuery().groupIdIn(OPERATON_ADMIN).resourceType(resource).resourceId(ANY).count() == 0) {
                 AuthorizationEntity groupAuth = new AuthorizationEntity(AUTH_TYPE_GRANT);
-                groupAuth.setGroupId(CAMUNDA_ADMIN);
+                groupAuth.setGroupId(OPERATON_ADMIN);
                 groupAuth.setResource(resource);
                 groupAuth.setResourceId(ANY);
                 groupAuth.addPermission(ALL);

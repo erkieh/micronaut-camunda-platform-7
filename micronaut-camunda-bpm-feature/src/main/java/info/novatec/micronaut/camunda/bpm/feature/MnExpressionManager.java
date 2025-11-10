@@ -15,13 +15,13 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature;
 
-import org.camunda.bpm.engine.impl.el.*;
-import org.camunda.bpm.impl.juel.jakarta.el.*;
+import jakarta.el.*;
+import org.operaton.bpm.engine.impl.el.*;
 
 /**
  * @author Tobias Schäfer
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/camunda/bpm/engine/spring/SpringExpressionManager.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/operaton/bpm/engine/spring/SpringExpressionManager.java
 public class MnExpressionManager extends JuelExpressionManager {
 
     protected final ApplicationContextElResolver applicationContextElResolver;

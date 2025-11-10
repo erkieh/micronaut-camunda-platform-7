@@ -16,8 +16,8 @@
 package info.novatec.micronaut.camunda.bpm.feature.test
 
 import io.micronaut.context.ApplicationContext
-import org.camunda.bpm.engine.ProcessEngine
-import org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl
+import org.operaton.bpm.engine.ProcessEngine
+import org.operaton.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource

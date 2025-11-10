@@ -17,13 +17,13 @@ package info.novatec.micronaut.camunda.bpm.feature;
 
 import io.micronaut.context.annotation.Factory;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.impl.cfg.IdGenerator;
-import org.camunda.bpm.engine.impl.persistence.StrongUuidGenerator;
+import org.operaton.bpm.engine.impl.cfg.IdGenerator;
+import org.operaton.bpm.engine.impl.persistence.StrongUuidGenerator;
 
 /**
  * @author Tobias Schäfer
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/camunda/bpm/spring/boot/starter/configuration/id/IdGeneratorConfiguration.java
+// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/operaton/bpm/spring/boot/starter/configuration/id/IdGeneratorConfiguration.java
 @Factory
 public class IdGeneratorFactory {
 

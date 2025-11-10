@@ -20,7 +20,7 @@ import info.novatec.micronaut.camunda.bpm.feature.initialization.FilterAllTaskCr
 import io.micronaut.context.annotation.Property
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
-import org.camunda.bpm.engine.ProcessEngine
+import org.operaton.bpm.engine.ProcessEngine
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

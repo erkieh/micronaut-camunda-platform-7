@@ -21,12 +21,12 @@ import io.micronaut.context.annotation.Property
 import io.micronaut.core.value.PropertyNotFoundException
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
-import org.camunda.bpm.engine.ProcessEngine
-import org.camunda.bpm.engine.authorization.Authorization.ANY
-import org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN
-import org.camunda.bpm.engine.authorization.Groups.GROUP_TYPE_SYSTEM
-import org.camunda.bpm.engine.authorization.Resources
-import org.camunda.bpm.engine.identity.User
+import org.operaton.bpm.engine.ProcessEngine
+import org.operaton.bpm.engine.authorization.Authorization.ANY
+import org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN
+import org.operaton.bpm.engine.authorization.Groups.GROUP_TYPE_SYSTEM
+import org.operaton.bpm.engine.authorization.Resources
+import org.operaton.bpm.engine.identity.User
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -158,7 +158,7 @@ class AdminUserCreatorTest {
     }
 
     fun assertAdminGroupExists(processEngine: ProcessEngine) {
-        val adminGroup = processEngine.identityService.createGroupQuery().groupId(CAMUNDA_ADMIN).singleResult()
+        val adminGroup = processEngine.identityService.createGroupQuery().groupId(OPERATON_ADMIN).singleResult()
         assertNotNull(adminGroup)
         assertEquals(GROUP_TYPE_SYSTEM, adminGroup.type)
     }
@@ -168,7 +168,7 @@ class AdminUserCreatorTest {
             assertEquals(
                 1,
                 processEngine.authorizationService.createAuthorizationQuery()
-                    .groupIdIn(CAMUNDA_ADMIN).resourceType(resource).resourceId(ANY).count()
+                    .groupIdIn(OPERATON_ADMIN).resourceType(resource).resourceId(ANY).count()
             )
         }
     }

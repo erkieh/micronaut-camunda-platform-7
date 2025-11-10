@@ -18,8 +18,8 @@ package info.novatec.micronaut.camunda.bpm.feature.eventing;
 
 import io.micronaut.context.event.ApplicationEventPublisher;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.impl.history.event.HistoryEvent;
-import org.camunda.bpm.engine.impl.history.handler.HistoryEventHandler;
+import org.operaton.bpm.engine.impl.history.event.HistoryEvent;
+import org.operaton.bpm.engine.impl.history.handler.HistoryEventHandler;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import java.util.List;
  *
  * @author Silvan Brenner
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/event/PublishHistoryEventHandler.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/event/PublishHistoryEventHandler.java
 @Singleton
 public class PublishHistoryEventHandler implements HistoryEventHandler {
 

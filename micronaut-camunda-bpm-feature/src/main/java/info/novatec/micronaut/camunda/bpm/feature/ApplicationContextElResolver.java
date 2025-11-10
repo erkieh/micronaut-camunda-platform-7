@@ -18,9 +18,9 @@ package info.novatec.micronaut.camunda.bpm.feature;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.Qualifier;
 import io.micronaut.inject.qualifiers.Qualifiers;
-import org.camunda.bpm.engine.ProcessEngineException;
-import org.camunda.bpm.impl.juel.jakarta.el.ELContext;
-import org.camunda.bpm.impl.juel.jakarta.el.ELResolver;
+import jakarta.el.ELContext;
+import jakarta.el.ELResolver;
+import org.operaton.bpm.engine.ProcessEngineException;
 
 import java.beans.FeatureDescriptor;
 import java.util.Iterator;
@@ -28,7 +28,7 @@ import java.util.Iterator;
 /**
  * @author Tobias Schäfer
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/camunda/bpm/engine/spring/ApplicationContextElResolver.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/engine-spring/core/src/main/java/org/operaton/bpm/engine/spring/ApplicationContextElResolver.java
 public class ApplicationContextElResolver extends ELResolver {
 
     protected final ApplicationContext applicationContext;
@@ -72,11 +72,6 @@ public class ApplicationContextElResolver extends ELResolver {
     @Override
     public Class<?> getCommonPropertyType(ELContext context, Object arg) {
         return Object.class;
-    }
-
-    @Override
-    public Iterator<FeatureDescriptor> getFeatureDescriptors(ELContext context, Object arg) {
-        return null;
     }
 
     @Override

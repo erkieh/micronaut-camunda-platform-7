@@ -18,7 +18,7 @@ package info.novatec.micronaut.camunda.bpm.feature.test
 import io.micronaut.context.annotation.Factory
 import jakarta.inject.Named
 import jakarta.inject.Singleton
-import org.camunda.bpm.engine.delegate.JavaDelegate
+import org.operaton.bpm.engine.delegate.JavaDelegate
 import org.mockito.Mockito.*
 
 @Factory

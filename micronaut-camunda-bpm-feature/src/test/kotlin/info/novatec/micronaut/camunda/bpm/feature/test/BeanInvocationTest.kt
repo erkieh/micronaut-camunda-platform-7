@@ -18,11 +18,11 @@ package info.novatec.micronaut.camunda.bpm.feature.test
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
 import jakarta.inject.Named
-import org.camunda.bpm.engine.RepositoryService
-import org.camunda.bpm.engine.RuntimeService
-import org.camunda.bpm.engine.delegate.DelegateExecution
-import org.camunda.bpm.engine.delegate.JavaDelegate
-import org.camunda.bpm.model.bpmn.Bpmn
+import org.operaton.bpm.engine.RepositoryService
+import org.operaton.bpm.engine.RuntimeService
+import org.operaton.bpm.engine.delegate.DelegateExecution
+import org.operaton.bpm.engine.delegate.JavaDelegate
+import org.operaton.bpm.model.bpmn.Bpmn
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentMatchers
@@ -52,7 +52,7 @@ class BeanInvocationTest {
         ProcessUtil.deploy(repositoryService, Bpmn.createProcess(processId)
                 .executable()
                 .startEvent()
-                .serviceTask().camundaDelegateExpression("\${myDelegate}")
+                .serviceTask().operatonExpression("\${myDelegate}")
                 .endEvent())
         runtimeService.startProcessInstanceByKey(processId)
         verify(myDelegate).execute(ArgumentMatchers.any(DelegateExecution::class.java))
@@ -64,7 +64,7 @@ class BeanInvocationTest {
         ProcessUtil.deploy(repositoryService, Bpmn.createProcess(processId)
                 .executable()
                 .startEvent()
-                .serviceTask().camundaClass(JavaDelegate::class.java.name)
+                .serviceTask().operatonClass(JavaDelegate::class.java.name)
                 .endEvent())
         runtimeService.startProcessInstanceByKey(processId)
         verify(myDelegate).execute(ArgumentMatchers.any(DelegateExecution::class.java))
@@ -76,7 +76,7 @@ class BeanInvocationTest {
         ProcessUtil.deploy(repositoryService, Bpmn.createProcess(processId)
                 .executable()
                 .startEvent()
-                .serviceTask().camundaClass(UnmanagedJavaDelegate::class.java.name)
+                .serviceTask().operatonClass(UnmanagedJavaDelegate::class.java.name)
                 .endEvent())
         runtimeService.startProcessInstanceByKey(processId)
     }

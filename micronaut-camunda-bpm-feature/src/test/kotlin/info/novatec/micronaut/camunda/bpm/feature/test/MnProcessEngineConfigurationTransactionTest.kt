@@ -20,11 +20,11 @@ import io.micronaut.transaction.SynchronousTransactionManager
 import io.micronaut.transaction.TransactionCallback
 import io.micronaut.transaction.TransactionStatus
 import jakarta.inject.Inject
-import org.camunda.bpm.engine.HistoryService
-import org.camunda.bpm.engine.RepositoryService
-import org.camunda.bpm.engine.RuntimeService
-import org.camunda.bpm.engine.history.HistoricProcessInstance
-import org.camunda.bpm.model.bpmn.Bpmn
+import org.operaton.bpm.engine.HistoryService
+import org.operaton.bpm.engine.RepositoryService
+import org.operaton.bpm.engine.RuntimeService
+import org.operaton.bpm.engine.history.HistoricProcessInstance
+import org.operaton.bpm.model.bpmn.Bpmn
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

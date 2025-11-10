@@ -19,31 +19,31 @@ package info.novatec.micronaut.camunda.bpm.feature.eventing;
 import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import io.micronaut.context.event.ApplicationEventPublisher;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.delegate.ExecutionListener;
-import org.camunda.bpm.engine.delegate.TaskListener;
-import org.camunda.bpm.engine.impl.bpmn.behavior.UserTaskActivityBehavior;
-import org.camunda.bpm.engine.impl.bpmn.parser.BpmnParseListener;
-import org.camunda.bpm.engine.impl.core.variable.mapping.IoMapping;
-import org.camunda.bpm.engine.impl.persistence.entity.ProcessDefinitionEntity;
-import org.camunda.bpm.engine.impl.pvm.process.ActivityImpl;
-import org.camunda.bpm.engine.impl.pvm.process.ScopeImpl;
-import org.camunda.bpm.engine.impl.pvm.process.TransitionImpl;
-import org.camunda.bpm.engine.impl.task.TaskDefinition;
-import org.camunda.bpm.engine.impl.util.xml.Element;
-import org.camunda.bpm.engine.impl.variable.VariableDeclaration;
+import org.operaton.bpm.engine.delegate.ExecutionListener;
+import org.operaton.bpm.engine.delegate.TaskListener;
+import org.operaton.bpm.engine.impl.bpmn.behavior.UserTaskActivityBehavior;
+import org.operaton.bpm.engine.impl.bpmn.parser.BpmnParseListener;
+import org.operaton.bpm.engine.impl.core.variable.mapping.IoMapping;
+import org.operaton.bpm.engine.impl.persistence.entity.ProcessDefinitionEntity;
+import org.operaton.bpm.engine.impl.pvm.process.ActivityImpl;
+import org.operaton.bpm.engine.impl.pvm.process.ScopeImpl;
+import org.operaton.bpm.engine.impl.pvm.process.TransitionImpl;
+import org.operaton.bpm.engine.impl.task.TaskDefinition;
+import org.operaton.bpm.engine.impl.util.xml.Element;
+import org.operaton.bpm.engine.impl.variable.VariableDeclaration;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.camunda.bpm.engine.delegate.ExecutionListener.*;
-import static org.camunda.bpm.engine.delegate.TaskListener.*;
+import static org.operaton.bpm.engine.delegate.ExecutionListener.*;
+import static org.operaton.bpm.engine.delegate.TaskListener.*;
 
 /**
  * Parse listener adding provided execution and task listeners.
  *
  * @author Silvan Brenner
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/event/PublishDelegateParseListener.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/event/PublishDelegateParseListener.java
 @Singleton
 public class PublishDelegateParseListener implements BpmnParseListener {
 

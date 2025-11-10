@@ -18,9 +18,9 @@ package info.novatec.micronaut.camunda.bpm.feature.initialization;
 
 import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.RepositoryService;
-import org.camunda.bpm.engine.repository.DeploymentBuilder;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.RepositoryService;
+import org.operaton.bpm.engine.repository.DeploymentBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;

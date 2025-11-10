@@ -16,9 +16,9 @@
 package info.novatec.micronaut.camunda.bpm.feature.tx;
 
 import io.micronaut.transaction.SynchronousTransactionManager;
-import org.camunda.bpm.engine.impl.cfg.TransactionContext;
-import org.camunda.bpm.engine.impl.cfg.TransactionContextFactory;
-import org.camunda.bpm.engine.impl.interceptor.CommandContext;
+import org.operaton.bpm.engine.impl.cfg.TransactionContext;
+import org.operaton.bpm.engine.impl.cfg.TransactionContextFactory;
+import org.operaton.bpm.engine.impl.interceptor.CommandContext;
 
 import java.sql.Connection;
 

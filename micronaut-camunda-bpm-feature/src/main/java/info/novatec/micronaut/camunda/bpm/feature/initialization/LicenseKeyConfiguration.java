@@ -19,8 +19,8 @@ import info.novatec.micronaut.camunda.bpm.feature.CamundaVersion;
 import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ManagementService;
-import org.camunda.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.ManagementService;
+import org.operaton.bpm.engine.ProcessEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ import java.util.Scanner;
 /**
  * @author Martin Sawilla
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/camunda/bpm/spring/boot/starter/configuration/impl/custom/EnterLicenseKeyConfiguration.java
+// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/operaton/bpm/spring/boot/starter/configuration/impl/custom/EnterLicenseKeyConfiguration.java
 @Singleton
 @Requires(property = "camunda.license-file")
 public class LicenseKeyConfiguration implements ParallelInitializationWithProcessEngine {
@@ -61,10 +61,10 @@ public class LicenseKeyConfiguration implements ParallelInitializationWithProces
         }
 
         // Check if there is already a license key in the database
-        if(managementService.getLicenseKey() != null) {
-            log.info("A license key is already registered and will be used. Please use the Camunda Cockpit to update it.");
-            return;
-        }
+//        if(managementService.getLicenseKey() != null) {
+//            log.info("A license key is already registered and will be used. Please use the Camunda Cockpit to update it.");
+//            return;
+//        }
 
         // User provides an URL to a license-file
         if(licenseFile.isPresent()) {
@@ -74,8 +74,8 @@ public class LicenseKeyConfiguration implements ParallelInitializationWithProces
         }
 
         if(licenseKey != null) {
-            managementService.setLicenseKey(licenseKey);
-            log.info("Registered new license key");
+//            managementService.setLicenseKey(licenseKey);
+//            log.info("Registered new license key");
         } else {
             log.warn("Could not locate the referenced license key. The license can be registered in the Camunda Cockpit.");
         }

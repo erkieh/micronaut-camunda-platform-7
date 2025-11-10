@@ -19,24 +19,24 @@ import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import info.novatec.micronaut.camunda.bpm.feature.initialization.ParallelInitializationWithoutProcessEngine;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.rest.impl.FetchAndLockContextListener;
-import org.camunda.bpm.engine.rest.security.auth.ProcessEngineAuthenticationFilter;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import org.operaton.bpm.engine.rest.impl.FetchAndLockContextListener;
+import org.operaton.bpm.engine.rest.security.auth.ProcessEngineAuthenticationFilter;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.ee8.servlet.FilterHolder;
-import org.eclipse.jetty.ee8.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee8.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
 import java.util.EnumSet;
 
 import static info.novatec.micronaut.camunda.bpm.feature.Configuration.Rest.DEFAULT_AUTHENTICATION_PROVIDER;
-import static javax.servlet.DispatcherType.REQUEST;
+import static jakarta.servlet.DispatcherType.REQUEST;
 
 /**
  * Using Micronaut Servlet with Jetty to run the REST API/Webapps as a servlet.
@@ -48,7 +48,7 @@ import static javax.servlet.DispatcherType.REQUEST;
 @Singleton
 @Requires(beans = Server.class)
 @Requires(property = "camunda.rest.enabled", value = "true")
-//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/tree/master/starter-webapp-core/src/main/java/org/camunda/bpm/spring/boot/starter/webapp
+//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/tree/master/starter-webapp-core/src/main/java/org/operaton/bpm/spring/boot/starter/webapp
 public class JettyServerCustomizerRuntimeRest implements ParallelInitializationWithoutProcessEngine {
 
     private static final Logger log = LoggerFactory.getLogger(JettyServerCustomizerRuntimeRest.class);

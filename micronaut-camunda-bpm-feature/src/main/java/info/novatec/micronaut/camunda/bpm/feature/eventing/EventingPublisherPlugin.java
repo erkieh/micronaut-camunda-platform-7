@@ -19,11 +19,11 @@ package info.novatec.micronaut.camunda.bpm.feature.eventing;
 import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.impl.bpmn.parser.BpmnParseListener;
-import org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
-import org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin;
-import org.camunda.bpm.engine.impl.history.handler.HistoryEventHandler;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.impl.bpmn.parser.BpmnParseListener;
+import org.operaton.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
+import org.operaton.bpm.engine.impl.cfg.ProcessEnginePlugin;
+import org.operaton.bpm.engine.impl.history.handler.HistoryEventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ import java.util.ArrayList;
  *
  * @author Silvan Brenner
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/event/EventPublisherPlugin.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/event/EventPublisherPlugin.java
 @Singleton
 @Requires(condition = EventingPublisherPluginCondition.class)
 public class EventingPublisherPlugin implements ProcessEnginePlugin {

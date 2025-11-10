@@ -16,13 +16,13 @@
 
 package info.novatec.micronaut.camunda.bpm.feature.eventing;
 
-import org.camunda.bpm.engine.delegate.DelegateExecution;
-import org.camunda.bpm.engine.delegate.ExecutionListener;
+import org.operaton.bpm.engine.delegate.DelegateExecution;
+import org.operaton.bpm.engine.delegate.ExecutionListener;
 
 /**
  * @author Silvan Brenner
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/event/ExecutionEvent.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/event/ExecutionEvent.java
 public class ExecutionEvent {
 
     protected final String activityInstanceId;

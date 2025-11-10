@@ -17,7 +17,7 @@ package info.novatec.micronaut.camunda.bpm.feature;
 
 import io.micronaut.core.annotation.Nullable;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.ProcessEngine;
 
 import java.util.Optional;
 
@@ -25,7 +25,7 @@ import java.util.Optional;
  * @author Paty Alonso
  */
 
-//Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/util/CamundaBpmVersion.java
+//Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/util/CamundaBpmVersion.java
 @Singleton
 public class CamundaVersion {
 

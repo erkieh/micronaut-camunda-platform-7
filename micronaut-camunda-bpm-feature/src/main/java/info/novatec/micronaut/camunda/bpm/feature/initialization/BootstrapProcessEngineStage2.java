@@ -21,8 +21,8 @@ import io.micronaut.context.BeanProvider;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
 import org.apache.ibatis.session.Configuration;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.impl.jobexecutor.JobExecutor;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.impl.jobexecutor.JobExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

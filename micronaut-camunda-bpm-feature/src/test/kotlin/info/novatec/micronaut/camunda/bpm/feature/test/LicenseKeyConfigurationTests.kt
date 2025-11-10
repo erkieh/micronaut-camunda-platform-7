@@ -19,8 +19,8 @@ import info.novatec.micronaut.camunda.bpm.feature.MnProcessEngineConfiguration
 import info.novatec.micronaut.camunda.bpm.feature.initialization.LicenseKeyConfiguration
 import io.micronaut.context.ApplicationContext
 import io.micronaut.runtime.server.EmbeddedServer
-import org.camunda.bpm.engine.ManagementService
-import org.camunda.bpm.engine.ProcessEngine
+import org.operaton.bpm.engine.ManagementService
+import org.operaton.bpm.engine.ProcessEngine
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

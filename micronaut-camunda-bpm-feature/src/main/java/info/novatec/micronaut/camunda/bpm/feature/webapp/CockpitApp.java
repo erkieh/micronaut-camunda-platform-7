@@ -15,7 +15,7 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.webapp;
 
-import org.camunda.bpm.cockpit.impl.web.CockpitApplication;
+import org.operaton.bpm.cockpit.impl.web.CockpitApplication;
 import org.glassfish.jersey.server.ResourceConfig;
 
 /***

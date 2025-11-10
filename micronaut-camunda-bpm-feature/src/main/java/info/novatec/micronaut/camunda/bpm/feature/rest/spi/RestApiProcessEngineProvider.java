@@ -15,9 +15,9 @@
  */
 package info.novatec.micronaut.camunda.bpm.feature.rest.spi;
 
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.ProcessEngines;
-import org.camunda.bpm.engine.rest.spi.ProcessEngineProvider;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.ProcessEngines;
+import org.operaton.bpm.engine.rest.spi.ProcessEngineProvider;
 
 import java.util.Set;
 
@@ -28,7 +28,7 @@ import java.util.Set;
  *
  * @author Martin Sawilla
  */
-//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter-rest/src/main/java/org/camunda/bpm/spring/boot/starter/rest/spi/SpringBootProcessEngineProvider.java
+//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter-rest/src/main/java/org/operaton/bpm/spring/boot/starter/rest/spi/SpringBootProcessEngineProvider.java
 public class RestApiProcessEngineProvider implements ProcessEngineProvider {
 
     @Override

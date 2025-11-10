@@ -16,14 +16,14 @@
 
 package info.novatec.micronaut.camunda.bpm.feature.eventing;
 
-import org.camunda.bpm.engine.delegate.DelegateTask;
+import org.operaton.bpm.engine.delegate.DelegateTask;
 
 import java.util.Date;
 
 /**
  * @author Silvan Brenner
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/camunda/bpm/spring/boot/starter/event/TaskEvent.java
+// Implementation based on https://github.com/camunda/camunda-bpm-platform/blob/master/spring-boot-starter/starter/src/main/java/org/operaton/bpm/spring/boot/starter/event/TaskEvent.java
 public class TaskEvent {
 
     protected final String assignee;

@@ -20,11 +20,11 @@ import io.micronaut.context.annotation.Property
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
 import org.assertj.core.api.Assertions.assertThat
-import org.camunda.bpm.engine.ManagementService
-import org.camunda.bpm.engine.RepositoryService
-import org.camunda.bpm.engine.repository.Deployment
-import org.camunda.bpm.engine.repository.ProcessDefinition
-import org.camunda.bpm.engine.repository.Resource
+import org.operaton.bpm.engine.ManagementService
+import org.operaton.bpm.engine.RepositoryService
+import org.operaton.bpm.engine.repository.Deployment
+import org.operaton.bpm.engine.repository.ProcessDefinition
+import org.operaton.bpm.engine.repository.Resource
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.util.stream.Collectors

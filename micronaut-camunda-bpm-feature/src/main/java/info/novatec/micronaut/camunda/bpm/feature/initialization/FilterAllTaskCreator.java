@@ -18,9 +18,9 @@ package info.novatec.micronaut.camunda.bpm.feature.initialization;
 import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.FilterService;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.filter.Filter;
+import org.operaton.bpm.engine.FilterService;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.filter.Filter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Martin Sawilla
  */
-// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/camunda/bpm/spring/boot/starter/configuration/impl/custom/CreateFilterConfiguration.java
+// Implementation based on https://github.com/camunda/camunda-bpm-spring-boot-starter/blob/master/starter/src/main/java/org/operaton/bpm/spring/boot/starter/configuration/impl/custom/CreateFilterConfiguration.java
 @Singleton
 @Requires(property = "camunda.filter.create")
 public class FilterAllTaskCreator implements ParallelInitializationWithProcessEngine {

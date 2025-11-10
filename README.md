@@ -117,8 +117,8 @@ If you deploy Camunda [Forms](https://docs.camunda.org/manual/latest/reference/f
 Inject the process engine or any of the Camunda services using constructor injection:
 ```java
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.RuntimeService;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.RuntimeService;
 
 @Singleton
 public class MyComponent {
@@ -145,8 +145,8 @@ To invoke a Java delegate create a bean and reference it in your process model u
 
 ```java
 import jakarta.inject.Singleton;
-import org.camunda.bpm.engine.delegate.DelegateExecution;
-import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.operaton.bpm.engine.delegate.DelegateExecution;
+import org.operaton.bpm.engine.delegate.JavaDelegate;
 
 @Singleton
 public class LoggerDelegate implements JavaDelegate {
@@ -207,7 +207,7 @@ You may use the following properties (typically in application.yml) to configure
 | camunda.rest          | .enabled         | false                                                                            | Enable the REST API |
 |                       | .context-path    | /engine-rest                                                                     | Context path for the REST API |
 |                       | .basic-auth-enabled | false                                                                            | Enables basic authentication for the REST API |
-|                       | .authentication-provider | org.camunda.bpm.engine. rest.security.auth.impl. HttpBasicAuthenticationProvider | Authentication Provider to use for the REST API |
+|                       | .authentication-provider | org.operaton.bpm.engine. rest.security.auth.impl. HttpBasicAuthenticationProvider | Authentication Provider to use for the REST API |
 | camunda.webapps       | .enabled         | false                                                                            | Enable the Webapps (Cockpit, Task list, Admin) |
 |                       | .context-path    | /camunda                                                                         | Context path for the Webapps |
 |                       | .index-redirect-enabled | true                                                                             | Registers a redirect from / to the Webapps |
@@ -284,7 +284,7 @@ Add the dependency to the pom.xml file:
 ```
 </details>
 
-Note: The module `micronaut-camunda-bpm-feature` includes the dependency `org.camunda.bpm:camunda-engine` which will be resolved transitively.
+Note: The module `micronaut-camunda-bpm-feature` includes the dependency `org.operaton.bpm:operaton-engine` which will be resolved transitively.
 
 ## Camunda REST API and Webapps
 
@@ -441,12 +441,12 @@ on how to do that. Keep in mind using the correct version of the libraries.
 In `build.gradle`:
 ```groovy
 implementation("info.novatec:micronaut-camunda-bpm-feature:2.20.0") {
-    exclude group: 'org.camunda.bpm.webapp', module: 'camunda-webapp-webjar'
-    exclude group: 'org.camunda.bpm', module: 'camunda-engine'
+    exclude group: 'org.operaton.bpm.webapp', module: 'camunda-webapp-webjar'
+    exclude group: 'org.operaton.bpm', module: 'operaton-engine'
 }
 
-implementation("org.camunda.bpm.webapp:camunda-webapp-webjar-ee:7.24.0-ee")
-implementation("org.camunda.bpm:camunda-engine:7.24.0-ee")
+implementation("org.operaton.bpm.webapp:camunda-webapp-webjar-ee:7.24.0-ee")
+implementation("org.operaton.bpm:operaton-engine:7.24.0-ee")
 ```
 </details>
 <details>
@@ -460,23 +460,23 @@ In `pom.xml`:
   <version>2.20.0</version>
   <exclusions>
     <exclusion>
-      <groupId>org.camunda.bpm.webapp</groupId>
+      <groupId>org.operaton.bpm.webapp</groupId>
       <artifactId>camunda-webapp-webjar</artifactId>
     </exclusion>
     <exclusion>
-      <groupId>org.camunda.bpm</groupId>
-      <artifactId>camunda-engine</artifactId>
+      <groupId>org.operaton.bpm</groupId>
+      <artifactId>operaton-engine</artifactId>
     </exclusion>
   </exclusions>
 </dependency>
 <dependency>
-  <groupId>org.camunda.bpm.webapp</groupId>
+  <groupId>org.operaton.bpm.webapp</groupId>
   <artifactId>camunda-webapp-webjar-ee</artifactId>
   <version>7.24.0-ee</version>
 </dependency>
 <dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine</artifactId>
+  <groupId>org.operaton.bpm</groupId>
+  <artifactId>operaton-engine</artifactId>
   <version>7.24.0-ee</version>
 </dependency>
 ```
@@ -495,7 +495,7 @@ If no license is registered, then the following locations will be checked during
 If you want to update your license key, use the Camunda Cockpit.
 
 ## Process Engine Plugins
-Every bean that implements the interface `org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin` is automatically added to the process engine's configuration on start.
+Every bean that implements the interface `org.operaton.bpm.engine.impl.cfg.ProcessEnginePlugin` is automatically added to the process engine's configuration on start.
 
 You can either
 * implement a bean factory with `@io.micronaut.context.annotation.Factory` and add one or more methods returning `ProcessEnginePlugin` instances and annotate each with a bean scope annotation
@@ -504,13 +504,13 @@ You can either
 Example with the LDAP plugin:
 
 ```groovy
-implementation("org.camunda.bpm.identity:camunda-identity-ldap:7.24.0")
+implementation("org.operaton.bpm.identity:camunda-identity-ldap:7.24.0")
 ```
 
 ```java
 import io.micronaut.context.annotation.Factory;
-import org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin;
-import org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin;
+import org.operaton.bpm.engine.impl.cfg.ProcessEnginePlugin;
+import org.operaton.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin;
 import jakarta.inject.Singleton;
 
 @Factory
@@ -697,7 +697,7 @@ You can enable the [Keycloak](https://www.keycloak.org/) integration to
 
 1. Start Keycloak, e.g. `docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR="h2" quay.io/keycloak/keycloak:12.0.4`
 2. Configure Keycloak and add a test user.
-3. Add the dependency `implementation("org.camunda.bpm.extension:camunda-bpm-identity-keycloak:2.2.3")` to your Micronaut project
+3. Add the dependency `implementation("org.operaton.bpm.extension:camunda-bpm-identity-keycloak:2.2.3")` to your Micronaut project
 4. Add the plugin:
 ```java
 @Singleton
@@ -787,7 +787,7 @@ Process tests can easily be implemented with JUnit 5 by adding the `camunda-bpm-
 <summary>Click to show Gradle dependencies</summary>
 
 ```groovy
-testImplementation("org.camunda.bpm:camunda-bpm-assert:7.24.0")
+testImplementation("org.operaton.bpm:camunda-bpm-assert:7.24.0")
 testImplementation("org.assertj:assertj-core")
 ```
 </details>
@@ -797,7 +797,7 @@ testImplementation("org.assertj:assertj-core")
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm</groupId>
+  <groupId>org.operaton.bpm</groupId>
   <artifactId>camunda-bpm-assert</artifactId>
   <version>7.24.0</version>
   <scope>test</scope>
@@ -815,15 +815,15 @@ and then implement the test using the usual `@MicronautTest` annotation:
 
 ```java
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.RuntimeService;
-import org.camunda.bpm.engine.runtime.ProcessInstance;
+import org.operaton.bpm.engine.ProcessEngine;
+import org.operaton.bpm.engine.RuntimeService;
+import org.operaton.bpm.engine.runtime.ProcessInstance;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import jakarta.inject.Inject;
 
-import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.*;
+import static org.operaton.bpm.engine.test.assertions.bpmn.BpmnAwareTests.*;
 
 @MicronautTest
 class HelloWorldProcessTest {
@@ -870,14 +870,14 @@ Run the Docker image:
 
 Generally, follow Camunda's instructions regarding [Update to the next Minor Version](https://docs.camunda.org/manual/latest/update/minor/).
 
-If you want to automate the database schema migration you can use [Liquibase](https://micronaut-projects.github.io/micronaut-liquibase/latest/guide/) or [Flyway](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/) together with the [migration sql scripts](https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/distro/camunda-sql-scripts/) provided by Camunda.
+If you want to automate the database schema migration you can use [Liquibase](https://micronaut-projects.github.io/micronaut-liquibase/latest/guide/) or [Flyway](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/) together with the [migration sql scripts](https://artifacts.camunda.com/artifactory/public/org/operaton/bpm/distro/camunda-sql-scripts/) provided by Camunda.
 
 The following examples are based on Liquibase.
 
 When starting on an empty database, e.g. when using H2 for tests:
 ```xml
 <changeSet author="Tobias" id="1a" >
-  <comment>Create common baseline Camunda 7.14 for H2 based on https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/distro/camunda-sql-scripts/7.14.0/camunda-sql-scripts-7.14.0.zip in directory create</comment>
+  <comment>Create common baseline Camunda 7.14 for H2 based on https://artifacts.camunda.com/artifactory/public/org/operaton/bpm/distro/camunda-sql-scripts/7.14.0/camunda-sql-scripts-7.14.0.zip in directory create</comment>
   <sqlFile path="camunda/h2_engine_7.14.0.sql" relativeToChangelogFile="true" dbms="h2" />
   <sqlFile path="camunda/h2_identity_7.14.0.sql" relativeToChangelogFile="true" dbms="h2" />
 </changeSet>
@@ -886,7 +886,7 @@ When starting on an empty database, e.g. when using H2 for tests:
 If you already have a persistent database with the database schema of 7.14 which is not yet managed by Liquibase, e.g. PostgreSQL:
 ```xml
 <changeSet author="Tobias" id="1b" >
-  <comment>Create common baseline Camunda 7.14 for PostgreSQL (even if schema already exists) based on https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/distro/camunda-sql-scripts/7.14.0/camunda-sql-scripts-7.14.0.zip in directory create</comment>
+  <comment>Create common baseline Camunda 7.14 for PostgreSQL (even if schema already exists) based on https://artifacts.camunda.com/artifactory/public/org/operaton/bpm/distro/camunda-sql-scripts/7.14.0/camunda-sql-scripts-7.14.0.zip in directory create</comment>
   <preConditions onFail="MARK_RAN">
     <not>
       <tableExists tableName="ACT_RU_JOB" />
@@ -900,7 +900,7 @@ If you already have a persistent database with the database schema of 7.14 which
 When updating to a new Camunda version first apply all patch updates (if available) and then update to the next minor version:
 ```xml
 <changeSet author="Tobias" id="2" >
-  <comment>Update to Camunda 7.15 based on https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/distro/camunda-sql-scripts/7.15.0/camunda-sql-scripts-7.15.0.zip in directory upgrade</comment>
+  <comment>Update to Camunda 7.15 based on https://artifacts.camunda.com/artifactory/public/org/operaton/bpm/distro/camunda-sql-scripts/7.15.0/camunda-sql-scripts-7.15.0.zip in directory upgrade</comment>
   <!-- no patch files available for 7.14.x ... -->
   <sqlFile path="camunda/h2_engine_7.14_to_7.15.sql" relativeToChangelogFile="true" dbms="h2" />
   <sqlFile path="camunda/postgres_engine_7.14_to_7.15.sql" relativeToChangelogFile="true" dbms="postgresql" />

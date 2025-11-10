@@ -26,7 +26,7 @@ import io.micronaut.servlet.undertow.UndertowServer;
 import io.undertow.Version;
 import jakarta.inject.Singleton;
 import org.apache.catalina.util.ServerInfo;
-import org.camunda.bpm.engine.impl.telemetry.dto.ApplicationServerImpl;
+import org.operaton.bpm.engine.impl.telemetry.dto.ApplicationServerImpl;
 import org.eclipse.jetty.util.Jetty;
 
 import java.util.Map;

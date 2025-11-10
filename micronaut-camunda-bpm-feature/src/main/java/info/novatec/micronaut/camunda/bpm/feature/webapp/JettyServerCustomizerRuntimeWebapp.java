@@ -19,38 +19,38 @@ import info.novatec.micronaut.camunda.bpm.feature.Configuration;
 import info.novatec.micronaut.camunda.bpm.feature.initialization.ParallelInitializationWithoutProcessEngine;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
-import org.camunda.bpm.admin.impl.web.bootstrap.AdminContainerBootstrap;
-import org.camunda.bpm.cockpit.impl.web.bootstrap.CockpitContainerBootstrap;
-import org.camunda.bpm.engine.rest.filter.CacheControlFilter;
-import org.camunda.bpm.engine.rest.filter.EmptyBodyFilter;
-import org.camunda.bpm.tasklist.impl.web.bootstrap.TasklistContainerBootstrap;
-import org.camunda.bpm.webapp.impl.engine.ProcessEnginesFilter;
-import org.camunda.bpm.webapp.impl.security.auth.AuthenticationFilter;
-import org.camunda.bpm.webapp.impl.security.filter.CsrfPreventionFilter;
-import org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter;
-import org.camunda.bpm.webapp.impl.security.filter.util.HttpSessionMutexListener;
-import org.camunda.bpm.welcome.impl.web.bootstrap.WelcomeContainerBootstrap;
+import org.operaton.bpm.admin.impl.web.bootstrap.AdminContainerBootstrap;
+import org.operaton.bpm.cockpit.impl.web.bootstrap.CockpitContainerBootstrap;
+import org.operaton.bpm.engine.rest.filter.CacheControlFilter;
+import org.operaton.bpm.engine.rest.filter.EmptyBodyFilter;
+import org.operaton.bpm.tasklist.impl.web.bootstrap.TasklistContainerBootstrap;
+import org.operaton.bpm.webapp.impl.engine.ProcessEnginesFilter;
+import org.operaton.bpm.webapp.impl.security.auth.AuthenticationFilter;
+import org.operaton.bpm.webapp.impl.security.filter.CsrfPreventionFilter;
+import org.operaton.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter;
+import org.operaton.bpm.webapp.impl.security.filter.util.HttpSessionMutexListener;
+import org.operaton.bpm.welcome.impl.web.bootstrap.WelcomeContainerBootstrap;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.ee8.servlet.DefaultServlet;
-import org.eclipse.jetty.ee8.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee8.servlet.ServletHolder;
-import org.eclipse.jetty.ee8.nested.SessionHandler;
+import org.eclipse.jetty.ee10.servlet.DefaultServlet;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.SessionHandler;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.*;
+import jakarta.servlet.*;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Collections.singletonMap;
-import static javax.servlet.DispatcherType.REQUEST;
+import static jakarta.servlet.DispatcherType.REQUEST;
 
 /**
  * Using Micronaut Servlet with Jetty to run the REST API/Webapps as a servlet.
@@ -62,7 +62,7 @@ import static javax.servlet.DispatcherType.REQUEST;
 @Singleton
 @Requires(beans = Server.class)
 @Requires(property = "camunda.webapps.enabled", value = "true")
-//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/tree/master/starter-webapp-core/src/main/java/org/camunda/bpm/spring/boot/starter/webapp
+//Implementation based on Spring-Boot-Starter: https://github.com/camunda/camunda-bpm-spring-boot-starter/tree/master/starter-webapp-core/src/main/java/org/operaton/bpm/spring/boot/starter/webapp
 public class JettyServerCustomizerRuntimeWebapp implements ParallelInitializationWithoutProcessEngine {
 
     private static final Logger log = LoggerFactory.getLogger(JettyServerCustomizerRuntimeWebapp.class);
@@ -145,7 +145,7 @@ public class JettyServerCustomizerRuntimeWebapp implements ParallelInitializatio
         // see https://stackoverflow.com/questions/11410388/add-more-than-one-resource-directory-to-jetty
         // and https://www.eclipse.org/jetty/documentation/jetty-12/index.html
         ResourceFactory resourceFactory = ResourceFactory.root();
-        Resource webappsResource = resourceFactory.newClassLoaderResource("/META-INF/resources/webjars/camunda");
+        Resource webappsResource = resourceFactory.newClassLoaderResource("/META-INF/resources/webjars/operaton");
         Resource pluginsResource = resourceFactory.newClassLoaderResource("/META-INF/resources");
         Resource resources = ResourceFactory.combine(webappsResource, pluginsResource);
         webappsContextHandler.setBaseResource(resources);
